@@ -1,15 +1,19 @@
 {
   "name": "postit",
   "version": "1.0.0",
+  "description": "A simple Express server application",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["express", "server", "api"],
+  "author": "Amaro Júnior",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "express": "^4.21.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
