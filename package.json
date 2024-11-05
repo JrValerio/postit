@@ -7,11 +7,16 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["express", "server", "api"],
+  "keywords": [
+    "express",
+    "server",
+    "api"
+  ],
   "author": "Amaro Júnior",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "sqlite3": "^5.1.7"
   },
   "engines": {
     "node": ">=14.0.0"
