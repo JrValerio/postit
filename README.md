@@ -21,7 +21,7 @@
 
 ## Sobre o Projeto
 
-O **Post-it Share App** é uma aplicação simples que permite aos usuários criar notas curtas e compartilhar links únicos para cada uma delas. A interface imita o visual de post-its e permite copiar facilmente o link de compartilhamento. Este projeto foi iniciado em uma **live coding** com o **Maik Brito**, CEO da **Rocketseat**, que ensinou conceitos práticos de desenvolvimento full stack. A gravação da live está disponível no [YouTube](https://www.youtube.com/watch?v=ixKkaWClWBE).
+O **Post-it Share App** é uma aplicação simples que permite aos usuários criar notas curtas e compartilhar links únicos para cada uma delas. A interface imita o visual de post-its e permite copiar facilmente o link de compartilhamento. Este projeto foi iniciado em uma **live coding** com o **Maik Brito**, CCO da **Rocketseat**, que ensinou conceitos práticos de desenvolvimento full stack. A gravação da live está disponível no [YouTube](https://www.youtube.com/watch?v=ixKkaWClWBE). Para mais informações sobre o trabalho do Maik Brito, acesse o [site oficial](https://maykbrito.dev) ou o [site da Rocketseat](https://www.rocketseat.com.br/?utm_source=youtube&utm_medium=organic&utm_campaign=profile&utm_term=profile&utm_content=about).
 
 Após a live, fiz aprimoramentos no código original, incluindo a adição de **ESLint e Prettier** para padronização do código e a criação de um **botão de cópia** para facilitar o compartilhamento do link. Essas contribuições melhoraram a qualidade do código e a experiência do usuário.
 
@@ -176,5 +176,9 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICE
 Amaro Júnior
 
 - [GitHub](https://github.com/JrValerio/postit)
-- [LinkedIn](https://www.linkedin.com/in/jrvalerio/)
+- [LinkedIn](https://www.linkedin.com/in/jrvalerio/) 
+
+Para mais informações sobre o trabalho de Maik Brito:
+- [Maik Brito - Site Oficial](https://maykbrito.dev)
+- [Rocketseat](https://www.rocketseat.com.br/?utm_source=youtube&utm_medium=organic&utm_campaign=profile&utm_term=profile&utm_content=about)
 
