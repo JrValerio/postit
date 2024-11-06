@@ -21,9 +21,9 @@
 
 ## Sobre o Projeto
 
-O **Post-it Share App** é uma aplicação simples que permite aos usuários criar notas curtas e compartilhar links únicos para cada uma delas. A interface imita o visual de post-its e permite copiar facilmente o link de compartilhamento. Este projeto foi iniciado em uma **live coding** com o **Maik Brito**, CEO da **Rocketseat**, que ensinou conceitos práticos de desenvolvimento full stack. O vídeo da live está disponível no [YouTube](https://www.youtube.com/watch?v=ixKkaWClWBE).
+O **Post-it Share App** é uma aplicação simples que permite aos usuários criar notas curtas e compartilhar links únicos para cada uma delas. A interface imita o visual de post-its e permite copiar facilmente o link de compartilhamento. Este projeto foi iniciado em uma **live coding** com o **Maik Brito**, CEO da **Rocketseat**, que ensinou conceitos práticos de desenvolvimento full stack. A gravação da live está disponível no [YouTube](https://www.youtube.com/watch?v=ixKkaWClWBE).
 
-Após a live, finalizei o código com aprimoramentos próprios, incluindo a adição de **ESLint e Prettier** para padronização do código e a criação de um **botão de cópia** para facilitar o compartilhamento do link. Essas contribuições ajudam a manter o código mais limpo e a melhorar a experiência do usuário.
+Após a live, fiz aprimoramentos no código original, incluindo a adição de **ESLint e Prettier** para padronização do código e a criação de um **botão de cópia** para facilitar o compartilhamento do link. Essas contribuições melhoraram a qualidade do código e a experiência do usuário.
 
 ## Recursos
 
@@ -43,7 +43,7 @@ Após a live, finalizei o código com aprimoramentos próprios, incluindo a adi�
 - **Backend**:
   - Node.js (ambiente de execução)
   - Express.js (framework para criação de APIs e rotas)
-  - SQLite (banco de dados leve para armazenamento de notas)
+  - SQLite (banco de dados leve para armazenamento de notas, gerenciado pelo Beekeeper)
 - **Ferramentas de Qualidade de Código**:
   - ESLint e Prettier (para padronização e formatação do código) - Contribuição de Júnior Valério
 
@@ -69,7 +69,7 @@ Antes de iniciar, você precisa ter o [Node.js](https://nodejs.org/en/) instalad
 3. Inicie o servidor:
 
    ```bash
-   node index.js
+   node src/index.js
    ```
 
 4. Abra o navegador e acesse `http://localhost:3000` para ver o app em funcionamento.
@@ -134,13 +134,26 @@ Para garantir a qualidade do código e a consistência de formatação, este pro
 ```bash
 postit/
 ├── public/                 # Arquivos estáticos e frontend
-│   ├── htmx.min.js         # Biblioteca HTMX para interações
-│   ├── index.html          # Página inicial com campo de nota
-│   ├── note.html           # Página para exibir uma nota específica
-│   └── style.css           # Arquivo de estilos CSS
-├── db.js                   # Configuração e operações do banco de dados SQLite
-├── index.js                # Servidor principal Express e configuração de rotas
-├── package.json            # Dependências do Node.js e scripts
+│   ├── assets/             # Imagens e outros recursos de mídia
+│   │   └── postit.png      # Imagem do post-it para o README
+│   ├── css/                # Arquivos de estilo
+│   │   └── style.css
+│   ├── js/                 # Scripts de terceiros ou scripts do cliente
+│   │   └── htmx.min.js
+│   └── views/              # Arquivos HTML
+│       ├── index.html
+│       └── note.html
+├── src/                    # Código-fonte da aplicação
+│   ├── config/             # Configurações e arquivos de setup
+│   │   └── db.js           # Lógica de banco de dados
+│   ├── controllers/        # Lógica de controle das rotas e funções da aplicação
+│   └── index.js            # Arquivo principal da aplicação
+├── .gitignore              # Ignora arquivos não rastreados
+├── .prettierrc             # Configuração do Prettier
+├── eslint.config.mjs       # Configuração do ESLint
+├── package.json            # Informações do projeto e dependências
+├── package-lock.json       # Lockfile para dependências exatas
+├── postit.db               # Banco de dados SQLite (opcionalmente incluído no .gitignore)
 └── README.md               # Documentação do projeto
 ```
 
@@ -160,7 +173,8 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICE
 
 ## Contato
 
-Amaro Júnior 
-[GitHub](https://github.com/JrValerio/postit)  
-[LinkedIn](https://www.linkedin.com/in/jrvalerio/)  
+Amaro Júnior
+
+- [GitHub](https://github.com/JrValerio/postit)
+- [LinkedIn](https://www.linkedin.com/in/jrvalerio/)
 
