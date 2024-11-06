@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post-it Share</title>
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/htmx.min,js"></script>
+  </head>
+  <body>
     <div class="sticky-note">
-        <div class="content" contenteditable="true">Digite sua anotação aqui...</div>
-        <button>Compartilhar</button>
+      <div class="content" contenteditable="true"
+      oninput=""document.getElemntById("share-button").disabled = !this.textContent.trim()">
+        
+      </div>
+      <button
+      disabled="true"
+      id="share-button"
+        hx-trigger="click"
+        hx-post="/note"
+        hx-target="#share-link"
+        hx-on:htmx:config-request="event.detail.parameters.content = content.innerHTML"
+        hx-on:htmx:after-request=""{
+            document.getElemntById("share-button").disabled = true;
+            document.getElemntById("content").innerHTML = "";
+        }
+      >
+        Compartilhar
+      </button>
     </div>
-    
+
     <div id="share-link">
-        <p>Compartilhe sua nota através do link</p>
-        <br>
-        <span>http://localhost:3000/note/asERdfe</span>
+      
     </div>
-</body>
+  </body>
 </html>

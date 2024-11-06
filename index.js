@@ -63,8 +63,7 @@ app.get('share/:id', async (req, res) => {
   if(note.opened_at) {
     await markNoteAsOpened(id);
   }
-  res.send(note.content)
-  
+  res.send(note.content) 
   
 });
 
