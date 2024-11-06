@@ -4,10 +4,8 @@
   "description": "A simple Express server application",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node --watch .",
-    "start": "node ."
-
+    "start": "node .",
+    "dev": "node --watch ."
   },
   "keywords": [
     "express",
