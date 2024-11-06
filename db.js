@@ -1,4 +1,4 @@
-const sqlite3 = require('sqlite3').verbose();
+import sqlite3 from 'sqlite3';
 const db = new sqlite3.Database('./postit.db');
 
 // Criação da tabela 'notes' com estrutura corrigida
@@ -12,7 +12,7 @@ db.serialize(() => {
 });
 
 // Função para salvar uma nova nota
-const saveNote = (id, content) =>
+export const saveNote = (id, content) =>
   new Promise((resolve, reject) =>
     db.run(
       `INSERT INTO notes (id, content) VALUES (?, ?)`,
@@ -22,7 +22,7 @@ const saveNote = (id, content) =>
   );
 
 // Função para buscar uma nota específica pelo ID
-const getNote = (id) =>
+export const getNote = (id) =>
   new Promise((resolve, reject) =>
     db.get(`SELECT * FROM notes WHERE id = ?`, [id], (err, row) =>
       err ? reject(err) : resolve(row)
@@ -30,7 +30,7 @@ const getNote = (id) =>
   );
 
 // Função para marcar uma nota como aberta, atualizando o campo `opened_at`
-const markNoteAsOpened = (id) =>
+export const markNoteAsOpened = (id) =>
   new Promise((resolve, reject) =>
     db.run(
       `UPDATE notes SET opened_at = datetime('now', 'localtime') WHERE id = ?`,
@@ -40,7 +40,7 @@ const markNoteAsOpened = (id) =>
   );
 
 // Função para deletar notas expiradas
-const deleteExpiredNotes = () =>
+export const deleteExpiredNotes = () =>
   new Promise((resolve, reject) =>
     db.run(
       `DELETE FROM notes 
@@ -49,10 +49,3 @@ const deleteExpiredNotes = () =>
       (err) => (err ? reject(err) : resolve())
     )
   );
-
-module.exports = {
-  saveNote,
-  getNote,
-  markNoteAsOpened,
-  deleteExpiredNotes,
-};

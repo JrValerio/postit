@@ -1,12 +1,12 @@
-const express = require('express');
-const crypto = require('crypto');
-
-const {
+import express from 'express';
+import crypto from 'crypto';
+import {
   saveNote,
   getNote,
   markNoteAsOpened,
   deleteExpiredNotes,
-} = require('./db');
+} from './db.js';
+
 const app = express();
 
 app.use(express.static('public'));
