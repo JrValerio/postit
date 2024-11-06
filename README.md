@@ -1,6 +1,6 @@
 # Post-it Share App 📝
 
-![Screenshot](https://github.com/JrValerio/postit/blob/main/public/postit.png?raw=true)
+![Screenshot](https://github.com/JrValerio/postit/blob/main/public/assets/postit.png?raw=true)
 
 > Uma aplicação web minimalista para criar, compartilhar e visualizar notas em um estilo de post-it.
 
