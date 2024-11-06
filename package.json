@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "A simple Express server application",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "dev": "node --watch .",

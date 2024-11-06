@@ -6,18 +6,24 @@ import {
   markNoteAsOpened,
   deleteExpiredNotes,
 } from './config/db.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
+
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/views/index.html');
+  res.sendFile(path.join(__dirname, '../public/views/index.html'));
 });
 
 app.get('/note/:id', (req, res) => {
-  res.sendFile(__dirname + '/public/views/note.html');
+  res.sendFile(path.join(__dirname, '../public/views/note.html'));
 });
 
 app.post('/notes', async (req, res) => {
@@ -68,9 +74,8 @@ app.post('/notes', async (req, res) => {
   }
 });
 
-// Consolidada a rota `/share/:id` com as melhorias
 app.get('/share/:id', async (req, res) => {
-  await deleteExpiredNotes(); // Exclui notas expiradas
+  await deleteExpiredNotes();
 
   const { id } = req.params;
   const note = await getNote(id);
@@ -82,7 +87,6 @@ app.get('/share/:id', async (req, res) => {
   }
 
   if (!note.opened_at) {
-    // Se a nota ainda não foi marcada como aberta, atualiza o campo `opened_at`
     await markNoteAsOpened(id);
   }
 
