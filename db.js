@@ -1,5 +1,5 @@
-const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database("./postit.db");
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('./postit.db');
 
 // Criação da tabela 'notes' com estrutura corrigida
 db.serialize(() => {

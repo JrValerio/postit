@@ -1,11 +1,14 @@
 {
   "name": "postit",
   "version": "1.0.0",
+  "type": "module",
   "description": "A simple Express server application",
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "dev": "node --watch ."
+    "dev": "node --watch .",
+    "lint": "eslint . --fix",
+    "format": "prettier --write ."
   },
   "keywords": [
     "express",
@@ -20,5 +23,13 @@
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "eslint": "^9.14.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.12.0",
+    "prettier": "^3.3.3"
   }
 }

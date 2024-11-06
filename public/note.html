@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -14,10 +14,10 @@
 
     <script>
       // Extrai o ID da nota da URL e configura o `hx-get` para carregar o conteúdo da nota
-      const noteId = location.pathname.split("/").pop();
+      const noteId = location.pathname.split('/').pop();
       document
-        .querySelector(".sticky-note")
-        .setAttribute("hx-get", `/share/${noteId}`);
+        .querySelector('.sticky-note')
+        .setAttribute('hx-get', `/share/${noteId}`);
     </script>
   </body>
 </html>
