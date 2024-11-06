@@ -27,14 +27,39 @@ app.post("/notes", async (req, res) => {
   try {
     const id = crypto.randomUUID();
     await saveNote(id, content);
-    res.send(
-      `
-        <p>Aqui está o seu link para compartilhar:</p>
-        <br>
-        <span>${req.headers.origin || "http://localhost:3000"}/note/${id}</span>
+    res.send(`
+      <div class="share-container">
+        <p class="share-text">Aqui está o seu link para compartilhar:</p>
+        <div class="link-container">
+          <span id="note-link" class="note-link">
+            ${req.headers.origin || "http://localhost:3000"}/note/${id}
+          </span>
+          <button id="copy-button" class="copy-button" onclick="copyLink()">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+      </div>
 
-    `
-    );
+      <script>
+        function copyLink() {
+          const linkElement = document.getElementById("note-link");
+          if (linkElement) {
+            const link = linkElement.textContent;
+            navigator.clipboard.writeText(link).then(() => {
+              const copyButton = document.getElementById("copy-button");
+              copyButton.innerHTML = "<i class='fas fa-check' style='color: green;'></i>";
+              setTimeout(() => {
+                copyButton.innerHTML = "<i class='fas fa-copy'></i>";
+              }, 2000);
+            }).catch(err => {
+              console.error("Erro ao copiar o link:", err);
+            });
+          } else {
+            console.error("Elemento com ID 'note-link' não encontrado.");
+          }
+        }
+      </script>
+    `);
   } catch (error) {
     console.error("Erro ao salvar a nota:", error);
     res.send('<span class="error">Erro Inesperado</span>');

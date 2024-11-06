@@ -56,7 +56,8 @@ body {
   color: hsl(0 0% 40%);
 }
 
-button {
+/* Aplicado apenas ao botão de compartilhamento dentro da nota */
+.sticky-note button {
   position: absolute;
   bottom: 1.25rem;
   right: 1.25rem;
@@ -68,13 +69,13 @@ button {
   border-radius: 0.25rem;
 }
 
-button:hover {
+.sticky-note button:hover {
   background: hsl(0 0% 0% / 0.2);
   transform: scale(1.1);
 }
 
-button.htmx-request,
-button:disabled {
+.sticky-note button.htmx-request,
+.sticky-note button:disabled {
   background: hsl(0 0% 0% / 0.15);
   opacity: 0.7;
   cursor: not-allowed;
@@ -84,14 +85,60 @@ button:disabled {
 #share-link {
   width: 23rem;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  color: hsl(0 0% 20%);
 
   & span {
     color: hsl(206 100% 50%);
+    font-size: 0.8rem;
+    word-break: break-all;
   }
 }
 
 #share-link .error,
 #content .error {
   color: hsl(0 100% 50%);
+}
+
+/* Estilo para o contêiner do link de compartilhamento */
+.link-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: hsl(0, 0%, 91%);
+}
+
+/* Estilo do link */
+.note-link {
+  color: hsl(206 100% 50%);
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+/* Botão de Copiar */
+.copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  font-size: 1rem;
+  color: #888;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.copy-button:hover {
+  color: hsl(206 80% 40%);
+  background: transparent;
+}
+
+.copy-button i {
+  font-size: 1.2rem;
 }
