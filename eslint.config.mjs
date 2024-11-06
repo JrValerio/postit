@@ -10,7 +10,7 @@ export default [
       "node_modules/",
       "public/",
       "*.config.js",
-      "public/htmx.min.js",
+      "public/js/htmx.min.js",
     ],
     files: ["**/*.js"],
     languageOptions: {

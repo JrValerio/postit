@@ -5,7 +5,7 @@ import {
   getNote,
   markNoteAsOpened,
   deleteExpiredNotes,
-} from './db.js';
+} from './config/db.js';
 
 const app = express();
 
@@ -13,11 +13,11 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(__dirname + '/public/views/index.html');
 });
 
 app.get('/note/:id', (req, res) => {
-  res.sendFile(__dirname + '/public/note.html');
+  res.sendFile(__dirname + '/public/views/note.html');
 });
 
 app.post('/notes', async (req, res) => {

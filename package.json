@@ -5,7 +5,7 @@
   "description": "A simple Express server application",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
+    "start": "node src/index.js",
     "dev": "node --watch .",
     "lint": "eslint . --fix",
     "format": "prettier --write ."
