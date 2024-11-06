@@ -12,22 +12,20 @@
       <div
         class="content"
         contenteditable="true"
-        oninput="document.getElementById('share-button').disabled = !this.textContent.trim()"
+        oninput="document.getElementById('shareButton').disabled = !this.textContent.trim()"
         id="content"
       >
         <!-- Conteúdo editável da nota -->
       </div>
       <button
         disabled="true"
-        id="share-button"
+        id="shareButton"
         hx-trigger="click"
-        hx-post="/note"
+        hx-post="/notes"
         hx-target="#share-link"
-        hx-vals='{"content": content.innerHTML}'
-        hx-on:htmx:after-request="
-          document.getElementById('share-button').disabled = true;
-          document.getElementById('content').innerHTML = '';
-        "
+        hx-on:htmx:config-request="event.detail.parameters.content = content.innerHTML"
+        hx-on:htmx:after-request="{document.getElementById('shareButton').disabled = true;
+          document.getElementById('content').innerHTML = '';}"
       >
         Compartilhar
       </button>

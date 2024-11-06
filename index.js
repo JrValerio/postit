@@ -1,13 +1,11 @@
 const express = require("express");
-const crypto = require("crypto");
 const {
   saveNote,
   getNote,
-  deleteExpiredNotes,
   markNoteAsOpened,
+  deleteExpiredNotes,
 } = require("./db");
 const app = express();
-const port = 3000;
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -33,11 +31,12 @@ app.post("/notes", async (req, res) => {
       `
         <p>Aqui está o seu link para compartilhar:</p>
         <br>
-        <span>${req.headers.origin || 'http://localhost:3000'}/note/${id}</span>
+        <span>${req.headers.origin || "http://localhost:3000"}/note/${id}</span>
 
-    </div>`
+    `
     );
   } catch (error) {
+    console.error("Erro ao salvar a nota:", error);
     res.send('<span class="error">Erro Inesperado</span>');
   }
 });
@@ -50,25 +49,28 @@ app.get("/share/:id", async (req, res) => {
   const note = await getNote(id);
 
   if (!note) {
-    return res.send('<span class="error">Erro: Nota não encontrada</span>');
+    return res.send('<span class="error">Erro: Esta mensagem não existe mais!</span>');
   }
 
-  if (note.opened_at === null) {
+  if (!note.opened_at) {
     // Se a nota ainda não foi marcada como aberta, atualiza o campo `opened_at`
     await markNoteAsOpened(id);
   }
 
-  res.send(`
-    <div id="share-link">
-        <p>Aqui está o seu link para compartilhar:</p>
-        <p>${note.content}</p>
-        <br>
-        <span>http://localhost:3000/note/${id}</span>
-    </div>
-  `);
+  res.send(note.content);
 });
 
+app.get("/notes", async (req, res) => {
+  try {
+    const notes = await getNotes(); // Função que busca todas as notas
+    res.json(notes); // Retorna as notas como JSON
+  } catch (error) {
+    console.error("Erro ao buscar as notas:", error);
+    res.status(500).send("Erro ao buscar as notas");
+  }
+});
+
+const port = 3000;
 app.listen(port, () => {
   console.log(`🚀 Server listening on port ${port}`);
 });
-
