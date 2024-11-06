@@ -34,5 +34,24 @@
     <div id="share-link">
       <!-- Link de compartilhamento será exibido aqui -->
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const contentDiv = document.getElementById("content");
+
+        // Verifica se o conteúdo está vazio e força a exibição do placeholder
+        if (!contentDiv.textContent.trim()) {
+          contentDiv.innerHTML = ""; // Deixa completamente vazio para o CSS funcionar
+        }
+
+        // Adiciona o evento para verificar a entrada do usuário
+        contentDiv.addEventListener("input", function () {
+          if (contentDiv.textContent.trim()) {
+            contentDiv.classList.remove("empty");
+          } else {
+            contentDiv.classList.add("empty");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

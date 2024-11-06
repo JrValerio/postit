@@ -49,7 +49,9 @@ app.get("/share/:id", async (req, res) => {
   const note = await getNote(id);
 
   if (!note) {
-    return res.send('<span class="error">Erro: Esta mensagem não existe mais!</span>');
+    return res.send(
+      '<span class="error">Erro: Esta mensagem não existe mais!</span>'
+    );
   }
 
   if (!note.opened_at) {
